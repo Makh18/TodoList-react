@@ -1,0 +1,28 @@
+.mydiv{
+    height: 150px;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    border:1px solid palevioletred;
+    padding: 10px;
+}
+.mydiv2{
+    height: 400px;
+    width: 50%;
+    margin: auto;
+    margin-top:20px;
+    border:1px solid palevioletred;
+    padding: 10px;
+    
+}
+.mybt{
+    margin-top: 20px;
+}
+ul li input{
+    background-color: transparent;
+    border:0;
+    font-size:15px;
+}
+lu li input:focus{
+    outline:none;
+}
