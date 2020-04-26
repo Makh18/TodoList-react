@@ -28,6 +28,20 @@ export default function Todo() {
 
         })
     };
+    const changeText = (e, id) => {
+        console.log({ e })
+        console.log({ id })
+        setTodos(todos.map(item => {
+            if (item.id === id) {
+                return {
+                    ...item,
+                    text: e.target.value
+                }
+            } else {
+                return item
+            }
+        }))
+    }
     return (
         <div>
             <h4><FontAwesomeIcon icon={faHome} style={{ color: 'red' }} />
@@ -49,9 +63,13 @@ export default function Todo() {
 
                     <ul className="mylist">
                         {todos.map((todo) => {
+                                let inputEl = null;
+                            const onEditButtonClick = () => {
+                                inputEl.focus()
+                            }
                             return <li class="list-group-item d-flex justify-content-between align-items-center" key={todo.id}>
-                                <input type="text" value={todo.text} />
-                                <a href="#" onClick={() => update(todo.id, todo.text)}><FontAwesomeIcon icon={faPen} style={{ color: 'green' }}></FontAwesomeIcon>
+                                <input type="text" value={todo.text} onChange={(e) => changeText(e, todo.id)} ref={(a) => { inputEl = a; }} />
+                                <a href="#" onClick={onEditButtonClick}><FontAwesomeIcon icon={faPen} style={{ color: 'green' }}></FontAwesomeIcon>
                                     <i class="fas fa-edit"></i></a>
 
                                 <a href="#" onClick={() => remove(todo.id)}>
